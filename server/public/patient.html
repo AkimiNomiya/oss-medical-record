@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>PATIENT - MedicalRecord</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./assets/main.css" rel="stylesheet">
+
+    <!-- Fonts from Google Fonts -->
+    <link href="./assets/font.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style id="style-1-cropbar-clipper">
+        /* Copyright 2014 Evernote Corporation. All rights reserved. */
+
+        .en-markup-crop-options {
+            top: 18px !important;
+            left: 50% !important;
+            margin-left: -100px !important;
+            width: 200px !important;
+            border: 2px rgba(255, 255, 255, .38) solid !important;
+            border-radius: 4px !important;
+        }
+
+        .en-markup-crop-options div div:first-of-type {
+            margin-left: 0px !important;
+        }
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <script type="text/javascript" src="./assets/jquery.qrcode.min.js"></script>
+
+    <script type="text/javascript" src="./assets/utf8.min.js"></script>
+
+    <script src="//beta.blockchain.z.com/static/client/lib/eth-client.js"></script>
+    <script type="text/javascript" src="./js/eth-util.js"></script>
+    <script type="text/javascript" src="./js/abis.js"></script>
+    <script type="text/javascript" src="./js/config.js"></script>
+    <script type="text/javascript" src="./js/local-storage.js"></script>
+    <script type="text/javascript" src="./js/demo-util.js"></script>
+
+    <link href="./assets/custom.css" rel="stylesheet" type="text/css">
+
+    <script src="./locale/demo-msg.js"></script>
+
+    <script type="text/javascript">
+        /* initialize */
+        $(document).ready(function() {
+
+            var patientAccount = LOCAL_STORAGE.getPatientAccount();
+            if (!patientAccount) {
+                $.datepicker.setDefaults($.datepicker.regional[(DEMO_MSG_LANG === 'ja' ? 'ja' : 'en')]);
+                $("#birth").datepicker({
+                    beforeShow: function(input, inst) {
+                        setTimeout(function() {
+                            var calendar = inst.dpDiv;
+                            calendar.position({
+                                my: 'left bottom',
+                                at: 'left top',
+                                of: input
+                            });
+                        }, 1);
+                    }
+                });
+                $('#sex').append($('<option>').val(demoMsg('patient.form.gender.none')).text(demoMsg('patient.form.gender.none')));
+                $('#sex').append($('<option>').val(demoMsg('patient.form.gender.male')).text(demoMsg('patient.form.gender.male')));
+                $('#sex').append($('<option>').val(demoMsg('patient.form.gender.female')).text(demoMsg('patient.form.gender.female')));
+                $('#input-area').css('display', 'block');
+                return;
+            }
+
+            $('#address').text(patientAccount.getAddress());
+            $('#address-area').css('display', 'block');
+
+            var contract = ETH_UTIL.getContract(patientAccount);
+            contract.getData('', 'History', 'getObjectId', [patientAccount.getAddress()], HISTORY_ABI, function(err, res) {
+                if (err) {
+                    console.error(err);
+                    alert('error. check console.');
+                    return;
+                }
+
+                console.log(res);
+                switch (res[0].status) {
+                    case 200:
+                        var data = JSON.parse(res[0].data);
+                        $('#view-name').text(data.name);
+                        $('#view-birth').text(data.birth);
+                        $('#view-sex').text(data.sex);
+                        $('#view-note').text(data.note);
+                        $('#view-area').css('display', 'block');
+                        break;
+                    case 204:
+                        // not yet confirmed.
+                        console.log(res[0]);
+                        break;
+                    case 404:
+                        // maybe transaction not reflected yet.
+                        console.log(res[0]);
+                        break;
+                    default:
+                        alert('getting error! check console!');
+                        console.error(err);
+                        console.error(res);
+                        break;
+                }
+            });
+
+            var hospitalId = LOCAL_STORAGE.getHospitalId();
+            if (!hospitalId) {
+                $('#hospital-not-registerd-area').css('display', 'block');
+                return;
+            }
+
+            contract.call('', 'Organization', 'getName', [hospitalId], ORGANIZATION_ABI, function(err, res) {
+                if (err) {
+                    console.error(err);
+                    alert('failed to get hospital name');
+                    return;
+                }
+
+                var name = ETH_UTIL.toUtf8(res[0]);
+                $('#hospital-name-view').text(name === '' ? '(' + demoMsg("hospital.content.hospital-unconfirmed") + ')' : name);
+                $('#hospital-id-view').text(hospitalId);
+                $('#qrcode').qrcode(hospitalId);
+                $('#hospital-area').css('display', 'block');
+            });
+
+            contract.call('', 'History', 'isAllowGroup', [hospitalId, patientAccount.getAddress()], HISTORY_ABI, function(err, res) {
+                if (err) {
+                    console.error(err);
+                    alert('failed to get permission');
+                    return;
+                }
+
+                if (res[0]) {
+                    $('#prohibit-hospital-button-area').css('display', 'block');
+                } else {
+                    $('#permit-hospital-button-area').css('display', 'block');
+                }
+            });
+        });
+
+        /* register Patient */
+        var sending = false;
+        var registerPatient = function() {
+
+            var timestamp = Math.floor(new Date().getTime() / 1000);
+
+            if (sending) return;
+            sending = true;
+
+            // check eth-util.js
+            ETH_UTIL.generateNewAccount(function(_newAccount) {
+                var name = $('#name').val();
+                var birth = $('#birth').val();
+                var sex = $('#sex').val();
+                var note = $('#note').val();
+                var data = {
+                    name: name,
+                    birth: birth,
+                    sex: sex,
+                    note: note
+                }
+                ETH_UTIL.getContract(_newAccount).sendData('', 'History', 'create', DEMO_UTIL.createRandomId(32), JSON.stringify(data), [Math.floor(new Date().getTime() / 1000)], HISTORY_ABI, function(err, res) {
+                    sending = false;
+                    if (err) {
+                        console.error(err);
+                        alert('error. check console.');
+                        return;
+                    }
+
+                    console.log(res);
+                    LOCAL_STORAGE.setPatientAccount(_newAccount);
+                    DEMO_UTIL.okDialog(
+                        demoMsg("patient.dialog.key-created.title"),
+                        demoMsg("patient.dialog.key-created.msg"),
+                        function() {
+                            window.location.href = './patient.html';
+                        }
+                    );
+                });
+            });
+        }
+
+        /* add permission to demo hospital */
+        var permitRequest = false;
+        var permitHospital = function() {
+            if (permitRequest) return;
+            permitRequest = true;
+            ETH_UTIL.getContract(LOCAL_STORAGE.getPatientAccount()).sendTransaction('', 'History', 'addAllowGroup', [Math.floor(new Date().getTime() / 1000), LOCAL_STORAGE.getHospitalId()], HISTORY_ABI, function(err, res) {
+                permitRequest = false;
+                if (err) {
+                    console.error(err);
+                    alert('error');
+                    return;
+                }
+
+                console.log(res);
+                DEMO_UTIL.okDialog(
+                    demoMsg("patient.dialog.add-permission.title"),
+                    demoMsg("patient.dialog.add-permission.msg"),
+                    function() {
+                        window.location.href = './doctor.html';
+                    }
+                );
+            });
+        }
+
+        /* add prohibit to demo hospital */
+        var prohibitRequest = false;
+        var prohibitHospital = function() {
+            if (prohibitRequest) return;
+            prohibitRequest = true;
+            ETH_UTIL.getContract(LOCAL_STORAGE.getPatientAccount()).sendTransaction('', 'History', 'removeAllowGroup', [Math.floor(new Date().getTime() / 1000), LOCAL_STORAGE.getHospitalId()], HISTORY_ABI, function(err, res) {
+                prohibitRequest = false;
+                if (err) {
+                    console.error(err);
+                    alert('error');
+                    return;
+                }
+
+                console.log(res);
+                DEMO_UTIL.okDialog(
+                    demoMsg("patient.dialog.remove-permission.title"),
+                    demoMsg("patient.dialog.remove-permission.msg"),
+                    function() {
+                        window.location.href = './doctor.html';
+                    }
+                );
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./hospital.html"><b><span demo-msg="common.actor.patient"></span></b></a>
+            </div>
+            <div class="navbar-collapse collapse" style="height: 1px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="./hospital.html" demo-msg="common.actor.hospital"></a>
+                    </li>
+                    <li>
+                        <a href="./doctor.html" demo-msg="common.actor.doctor"></a>
+                    </li>
+                    <li>
+                        <a href="./patient.html" demo-msg="common.actor.patient"></a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div id="input-area" class="container" style="margin-top : 80px; display:none;">
+        <div class="row centered">
+            <div demo-msg="patient.form.input-new.description"></div>
+            <div class="form-inline top-space" role="form">
+                <div class="form-group">
+                    <div demo-msg="common.caption.patient.name"></div>
+                    <input class="form-control patient-list" id="name">
+                </div>
+            </div>
+            <div class="form-inline top-space" role="form">
+                <div class="form-group">
+                    <div demo-msg="common.caption.patient.birth"></div>
+                    <input class="form-control patient-list" id="birth">
+                </div>
+            </div>
+            <div class="form-inline top-space" role="form">
+                <div class="form-group">
+                    <div demo-msg="common.caption.patient.gender"></div>
+                    <select class="form-control patient-list" id="sex">
+                    </select>
+                </div>
+            </div>
+            <div class="form-inline top-space" role="form">
+                <div class="form-group">
+                    <div demo-msg="common.caption.patient.note"></div>
+                    <input class="form-control patient-list" id="note">
+                </div>
+            </div>
+            <div class="form-inline top-space" role="form">
+                <div class="form-group">
+                    <button id="button" onclick="registerPatient()" class="btn btn-warning btn-lg" demo-msg="patient.form.input-new.submit"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="address-area" class="container" style="margin-top : 80px; display:none;">
+        <div class="row centered">
+            <div class="form-inline" role="form">
+                <div class="form-group">
+                    <div demo-msg="common.caption.patient.key-address"></div>
+                    <b><div id="address"></div></b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="view-area" class="container" style="margin-top : 10px; display:none;">
+        <div class="row centered">
+            <div><span demo-msg="common.caption.patient.name">&nbsp;</span> : <b><div id="view-name"></div></b></div>
+            <div><span demo-msg="common.caption.patient.birth">&nbsp;</span> : <b><div id="view-birth"></div></b></div>
+            <div><span demo-msg="common.caption.patient.gender">&nbsp;</span> : <b><div id="view-sex"></div></b></div>
+            <div><span demo-msg="common.caption.patient.note">&nbsp;</span></div>
+            <b><div id="view-note"></div></b>
+        </div>
+    </div>
+
+    <div id="hospital-not-registerd-area" class="container" style="display:none;">
+        <div class="row centered">
+            <hr>
+        </div>
+        <div class="row centered">
+            <div class="col-lg-6 col-lg-offset-3">
+                <b><div class="view-field" demo-msg="patient.content.no-hospital-registered">&nbsp;</div></b>
+                <button id="hospital-button" onclick="location.href='./hospital.html'" class="btn btn-warning btn-lg top-space" demo-msg="patient.content.register-hospital">&nbsp;</button>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row centered">
+            <hr>
+        </div>
+    </div>
+
+    <div id="hospital-area" class="container" style="display:none;">
+        <div class="row centered">
+            <hr>
+        </div>
+        <div class="row centered">
+            <div demo-msg="common.caption.hospital.name">&nbsp;</div>
+            <b><div class="view-field" id="hospital-name-view">&nbsp;</div></b>
+            <div demo-msg="common.caption.hospital.id">&nbsp;</div>
+            <b><div class="view-field" id="hospital-id-view">&nbsp;</div></b>
+            <div id="qrcode"></div>
+            <div id="permit-hospital-button-area" style="display:none;">
+                <button onclick="permitHospital()" class="btn btn-warning btn-lg top-space" demo-msg="patient.form.allow-access-to-hospital.submit">&nbsp;</button>
+            </div>
+            <div id="prohibit-hospital-button-area" style="display:none;">
+                <button onclick="prohibitHospital()" class="btn btn-warning btn-lg top-space" demo-msg="patient.form.deny-access-from-hospital.submit">&nbsp;</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row centered tail-space"></div>
+    <!-- /container -->
+
+    <div id="dialog"></div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./assets/bootstrap.min.js"></script>
+
+</body>
+
+</html>

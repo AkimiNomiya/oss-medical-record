@@ -1,0 +1,15 @@
+{
+  "name": "medical-record",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "debug": "^2.6.8",
+    "eth-client": "^0.1.8",
+    "express": "^4.15.3"
+  }
+}

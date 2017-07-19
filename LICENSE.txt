@@ -1,0 +1,37 @@
+This License Agreement (hereafter referred to as "this Agreement") sets out the conditions provided by GMO Internet,Inc. (hereinafter referred to as "Company") for open source.
+Anyone can use this software (as stated in the following articles) as long as you understand and agree to the terms of use.
+
+# Article 1 (Definition)
+
+1. "License" means open source that we use, duplicate and distribute as provided in these Terms.
+2. "Licensor" means our company.
+3. "Licensee" means an individual or corporation using this License.
+4. "Source" includes, but is not limited to, source code, document source, and files comprising this software and documents that constitute this License.
+5. "Objects" means compiled object code, generated documents, and any conversions of said objects or source to other media types.
+6. "Derivative work" means an entity in source form or object form produced based on or derived from this source or this object.
+
+# Article 2 (About the use of copyright)
+
+The Licensee agrees to all the terms of this agreement by downloading the source and objects. We assume that the Licensee agrees to these Terms by the Licensee's downloading of source and objects.
+The Licensee may reproduce this License non-exclusively, make derivative works, publish, and distribute it in accordance with the conditions of these Terms.
+Licensee may redistribute derivative work in accordance with the terms of this agreement.
+
+# Article 3 (Copyright notice)
+
+The Licensee must include the copyright notice (Copyright (C) GMO Internet,Inc.) of the license specified by the Company and the full text of the license in the source or in a separate file for viewing attached to the source.
+
+# Article 4 (Disclaimer)
+
+Company disclaims any warranties (patent infringement, tort, behavioral backup, data guarantee, direct, indirect, accidental, misrepresentation, allegiance, including, but is not limited to, lost profits, computer malfunctions, general malfunctions, data erasure, etc.).
+
+# Article 5 (Prohibited matter)
+
+Company do not allow licensees to conduct criminal acts using all or any part of this license, source or objects.
+
+# Article 6 (Changes in the License)
+
+Company may change these Terms at any time at our discretion without obtaining prior permission from Licensee. The changed terms will be effective upon publishing on our website.
+
+# Article 7 (Separability)
+
+Even if any provision of this Agreement or any part thereof is determined to be invalid or unenforceable, such judgment will not affect other parts of these Terms and those parts of these Terms will remain in effect.

@@ -1,0 +1,134 @@
+{
+    "common": {
+        "actor": {
+            "hospital": "病院",
+            "doctor": "医者",
+            "patient": "患者"
+        },
+        "caption": {
+            "hospital": {
+                "key-address": "病院アドレス",
+                "name": "病院名",
+                "id": "病院ID"
+            },
+            "doctor": {
+                "key-address": "医者アドレス"
+            },
+            "patient": {
+                "key-address": "患者アドレス",
+                "name": "名前",
+                "birth": "誕生日",
+                "gender": "性別",
+                "note": "メモ"
+            }
+        }
+    },
+    "index": {
+        "title": "役割選択"
+    },
+    "hospital": {
+        "content": {
+            "hospital-unconfirmed": "確定処理中"
+        },
+        "form": {
+            "input-new": {
+                "description": "デモ用の病院が登録されていません。\n病院名を入力してデモ用病院を登録してください。\n\n病院の鍵をブラウザ上に保存し、ブロックチェーン上にそのアドレスを登録します。",
+                "submit": "デモ用に病院を登録する"
+            },
+            "remove-hospital": {
+                "submit": "デモ用の病院を削除する"
+            }
+        },
+        "dialog": {
+            "err-no-name": {
+                "title": "入力エラー",
+                "msg": "病院名が入力されていません。"
+            },
+            "err-name-too-long": {
+                "title": "入力エラー",
+                "msg": "病院名は 32バイト以下の長さで入力してください。"
+            },
+            "key-created": {
+                "title": "病院登録完了",
+                "msg": "デモ用の病院の登録が完了しました。"
+            },
+            "key-removed": {
+                "title": "病院削除完了",
+                "msg": "デモ用の病院の削除が完了しました。"
+            }
+        }
+    },
+    "doctor": {
+        "content": {
+            "temp-client-time": "確定処理中クライアント時刻表示"
+        },
+        "form": {
+            "input-patient-address": {
+                "description": "デモのため患者アドレスをローカルストレージから直接取得します。",
+                "submit": "患者医療情報取得"
+            },
+            "input-medical-record": {
+                "submit": "医療情報登録"
+            }
+        },
+        "dialog": {
+            "err-no-hospital": {
+                "title": "病院未登録",
+                "msg": "デモ用の病院が未登録です。\n事前に病院の登録を行ってください。"
+            },
+            "create-new": {
+                "title": "医者登録",
+                "msg": "デモ用の医者の登録がされていません。\nデモ用の医者の登録を行いますか？"
+            },
+            "key-created": {
+                "title": "医者登録完了",
+                "msg": "デモ用の医者の登録が完了しました。"
+            },
+            "read-permission-denied": {
+                "title": "権限エラー",
+                "msg": "読込権限がありません。"
+            },
+            "write-complete": {
+                "title": "書込み完了",
+                "msg": "医療情報の書き込みに成功しました。"
+            }
+        }
+    },
+    "patient": {
+        "content": {
+            "no-hospital-registered": "デモ用の病院が作成されていません。",
+            "register-hospital": "デモ用に病院を作成する"
+        },
+        "form": {
+            "input-new": {
+                "description": "デモ用の患者が登録されていません。\n患者情報を入力してデモ用患者を登録してください。\n\n患者の鍵をブラウザ上に保存し、ブロックチェーン上に患者情報をアクセスコントロール付きで保存します。",
+                "submit": "デモ用の患者登録を行う。"
+            },
+            "gender": {
+                "none": "入力なし",
+                "male": "男性",
+                "female": "女性"
+            },
+            "allow-access-to-hospital": {
+                "submit": "病院に読み書き権限を付与する。 (疑似QRコード読取)"
+            },
+            "deny-access-from-hospital": {
+                "submit": "病院から読み書き権限を削除する。 (疑似QRコード読取)"
+            }
+        },
+        "dialog": {
+            "key-created": {
+                "title": "患者登録完了",
+                "msg": "デモ用の患者の登録が完了しました。"
+            },
+            "add-permission": {
+                "title": "権限付与完了",
+                "msg": "病院に読み書き権限の付与を行いました。"
+            },
+            "remove-permission": {
+                "title": "権限削除完了",
+                "msg": "病院から読み書き権限の削除を行いました。"
+            }
+        }
+    }
+}

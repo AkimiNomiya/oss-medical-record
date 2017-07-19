@@ -1,0 +1,134 @@
+{
+    "common": {
+        "actor": {
+            "hospital": "HOSPITAL",
+            "doctor": "DOCTOR",
+            "patient": "PATIENT"
+        },
+        "caption": {
+            "hospital": {
+                "key-address": "Hospital Address",
+                "name": "Hospital Name",
+                "id": "Hospital ID"
+            },
+            "doctor": {
+                "key-address": "Doctor Terminal Address"
+            },
+            "patient": {
+                "key-address": "Patient Address",
+                "name": "Patient Name",
+                "birth": "Patient Birth",
+                "gender": "Patient Gender",
+                "note": "Patient Note"
+            }
+        }
+    },
+    "index": {
+        "title": "SELECT ACTOR"
+    },
+    "hospital": {
+        "content": {
+            "hospital-unconfirmed": "FINALIZING"
+        },
+        "form": {
+            "input-new": {
+                "description": "There is no DEMO Hospital. \nEnter a hospital name and register DEMO hospital.\n\nHospital's Key will be saved on this browser, and one's address will be registered to blockchain for DEMO.",
+                "submit": "Register DEMO Hospital"
+            },
+            "remove-hospital": {
+                "submit": "Remove DEMO Hospital"
+            }
+        },
+        "dialog": {
+            "err-no-name": {
+                "title": "Input Error",
+                "msg": "Hospital Name required"
+            },
+            "err-name-too-long": {
+                "title": "Input Error",
+                "msg": "Hospital Name must be 32 bytes or less."
+            },
+            "key-created": {
+                "title": "Registration Complete",
+                "msg": "DEMO Hospital Registered Successfully!"
+            },
+            "key-removed": {
+                "title": "Removal Completed",
+                "msg": "DEMO Hospital removed successfully!"
+            }
+        }
+    },
+    "doctor": {
+        "content": {
+            "temp-client-time": "temporary client time"
+        },
+        "form": {
+            "input-patient-address": {
+                "description": "For DEMO, the patient's address will be directly set from this browser's localstorage.",
+                "submit": "Get Patient's Medical Record"
+            },
+            "input-medical-record": {
+                "submit": "Write Medical Record"
+            }
+        },
+        "dialog": {
+            "err-no-hospital": {
+                "title": "No Hospital Registered",
+                "msg": "DEMO hospital has not been registered.\nPlease register a hospital in advance."
+            },
+            "create-new": {
+                "title": "Doctor Registration",
+                "msg": "DEMO doctor has not been registered yet.\nDo you create DEMO doctor?"
+            },
+            "key-created": {
+                "title": "Doctor Registration Completed",
+                "msg": "DEMO doctor registered successfully!"
+            },
+            "read-permission-denied": {
+                "title": "Permission Error",
+                "msg": "No permission to read."
+            },
+            "write-complete": {
+                "title": "Written Successfully",
+                "msg": "Medical record has been written successfully."
+            }
+        }
+    },
+    "patient": {
+        "content": {
+            "no-hospital-registered": "Hospital for DEMO has not been registerd.",
+            "register-hospital": "Register hospital for DEMO."
+        },
+        "form": {
+            "input-new": {
+                "description": "There is no DEMO Patient. \nEnter patient's informations and register DEMO patient.\n\nPatient's Key will be saved on this browser, and one's informations will be saved with access control on the blockchain for DEMO.",
+                "submit": "Register DEMO Patient"
+            },
+            "gender": {
+                "none": "No Input",
+                "male": "Male",
+                "female": "Female"
+            },
+            "allow-access-to-hospital": {
+                "submit": "Add Read/Write auth to the hospital. (As read with QR code)"
+            },
+            "deny-access-from-hospital": {
+                "submit": "Remove Read/Write auth from the hospital. (As read with QR code)"
+            }
+        },
+        "dialog": {
+            "key-created": {
+                "title": "Patient Registration Completed",
+                "msg": "DEMO patient registered successfully!"
+            },
+            "add-permission": {
+                "title": "Add Permission Successfully",
+                "msg": "Add read/write permission to DEMO hospital Successfully."
+            },
+            "remove-permission": {
+                "title": "Remove Permission Successfully",
+                "msg": "Remove read/write permission from DEMO hospital Successfully."
+            }
+        }
+    }
+}

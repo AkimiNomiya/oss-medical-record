@@ -1,0 +1,3 @@
+[submodule "gmo"]
+	path = gmo
+	url = https://github.com/gmo-blockchain/solidity
