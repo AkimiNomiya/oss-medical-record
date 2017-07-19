@@ -1,4 +1,4 @@
-[Medical Record](https://oss.blockchain.z.com/docs/oss/medical-record/) - GMO Blockchain Open Source
+[Medical Record Sharing](https://guide.blockchain.z.com/docs/oss/medical-record/) - GMO Blockchain Open Source
 ==================================================
 
 License
