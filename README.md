@@ -18,39 +18,42 @@ http://oss.blockchain.z.com/medical-record/
 Usage Guides
 --------------------------------------
 
-## Create Z.com Cloud Blockchain environment
+#### Create Z.com Cloud Blockchain environment
 see [Setup Development Environment](https://guide.blockchain.z.com/docs/init/setup/)
 
-## Install application
+#### Install application
 ```bash
 git clone --recursive https://github.com/zcom-cloud-blockchain/oss-medical-record.git
+cd %OSS_MEDICAL_RECORD_HOME%/server
 npm install
 ```
 
-## Create admin account
+#### Create admin account
 ```bash
+cd %OSS_MEDICAL_RECORD_HOME%
 node server/create_admin_account.js
 ```
 
-## Configure for contracts
+#### Configure for contracts
 Create provider/config.json based on provider/config_template.json. Edit "adminAddress" and "adminGroupId". "adminGroupId" is a random string.
 
-## Deploy contracts
+#### Deploy contracts
 ```bash
+cd %OSS_MEDICAL_RECORD_HOME%\provider
 truffle migrate
 ```
 
-## Set up for Z.com Cloud Blockchain
+#### Set up for Z.com Cloud Blockchain
 see [Basic Configuration](https://guide.blockchain.conoha.jp/docs/dapp/setup/)
 
-## Configure for server
+#### Configure for server
 Create server/config.json based on server/config_template.json. Edit "account" and "password" of admin which you created.
 
-## Configure for client
+#### Configure for client
 Create server/public/js/config.json based on server/public/js/config_template.json. Edit "CNS_ADDRESS" which you deployed.
 
-
-## Start application
+#### Start application
 ```bash
+cd %OSS_MEDICAL_RECORD_HOME%
 node server/app.js
 ```
