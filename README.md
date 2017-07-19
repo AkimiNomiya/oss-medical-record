@@ -39,7 +39,7 @@ Create provider/config.json based on provider/config_template.json. Edit "adminA
 
 #### Deploy contracts
 ```bash
-cd %OSS_MEDICAL_RECORD_HOME%\provider
+cd %OSS_MEDICAL_RECORD_HOME%/provider
 truffle migrate
 ```
 
