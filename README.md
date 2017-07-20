@@ -24,13 +24,13 @@ see [Setup Development Environment](https://guide.blockchain.z.com/docs/init/set
 #### Install application
 ```bash
 git clone --recursive https://github.com/zcom-cloud-blockchain/oss-medical-record.git
-cd %OSS_MEDICAL_RECORD_HOME%/server
+cd oss-medical-record/server
 npm install
 ```
 
 #### Create admin account
 ```bash
-cd %OSS_MEDICAL_RECORD_HOME%
+cd oss-medical-record
 node server/create_admin_account.js
 ```
 
@@ -39,7 +39,7 @@ Create provider/config.json based on provider/config_template.json. Edit "adminA
 
 #### Deploy contracts
 ```bash
-cd %OSS_MEDICAL_RECORD_HOME%/provider
+cd oss-medical-record/provider
 truffle migrate
 ```
 
@@ -54,6 +54,6 @@ Create server/public/js/config.json based on server/public/js/config_template.js
 
 #### Start application
 ```bash
-cd %OSS_MEDICAL_RECORD_HOME%
+cd oss-medical-record
 node server/app.js
 ```
