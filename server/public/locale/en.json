@@ -32,8 +32,8 @@
         },
         "form": {
             "input-new": {
-                "description": "There is no DEMO Hospital. \nEnter a hospital name and register DEMO hospital.\n\nHospital's Key will be saved on this browser, and one's address will be registered to blockchain for DEMO.",
-                "submit": "Register DEMO Hospital"
+                "description": "There is no DEMO Hospital. \nEnter a hospital name and register a DEMO hospital.\n\nThe hospital's key will be saved on this browser, and the hospital blockchain address will be saved to the blockchain for the DEMO.",
+                "submit": "Add DEMO Hospital"
             },
             "remove-hospital": {
                 "submit": "Remove DEMO Hospital"
@@ -64,7 +64,7 @@
         },
         "form": {
             "input-patient-address": {
-                "description": "For DEMO, the patient's address will be directly set from this browser's localstorage.",
+                "description": "For the DEMO, the patient's address will be directly saved to this browser's local storage.",
                 "submit": "Get Patient's Medical Record"
             },
             "input-medical-record": {
@@ -74,34 +74,42 @@
         "dialog": {
             "err-no-hospital": {
                 "title": "No Hospital Registered",
-                "msg": "DEMO hospital has not been registered.\nPlease register a hospital in advance."
+                "msg": "A DEMO hospital has not been added.\nPlease add a hospital in advance."
             },
             "create-new": {
                 "title": "Doctor Registration",
-                "msg": "DEMO doctor has not been registered yet.\nDo you create DEMO doctor?"
+                "msg": "DEMO doctor has not been added yet.\nDid you add a DEMO doctor?"
+            },
+            "no-patient-address": {
+                "title": "Input Error",
+                "msg": "Target patient address is required."
+            },
+            "invalid-patient-address": {
+                "title": "Input Error",
+                "msg": "Target patient address must be 40 digits hex."
             },
             "key-created": {
                 "title": "Doctor Registration Completed",
-                "msg": "DEMO doctor registered successfully!"
+                "msg": "DEMO doctor added successfully!"
             },
             "read-permission-denied": {
                 "title": "Permission Error",
                 "msg": "No permission to read."
             },
             "write-complete": {
-                "title": "Written Successfully",
-                "msg": "Medical record has been written successfully."
+                "title": "Saved Successfully",
+                "msg": "Medical record has been saved successfully."
             }
         }
     },
     "patient": {
         "content": {
-            "no-hospital-registered": "Hospital for DEMO has not been registerd.",
+            "no-hospital-registered": "Hospital for DEMO has not been registered.",
             "register-hospital": "Register hospital for DEMO."
         },
         "form": {
             "input-new": {
-                "description": "There is no DEMO Patient. \nEnter patient's informations and register DEMO patient.\n\nPatient's Key will be saved on this browser, and one's informations will be saved with access control on the blockchain for DEMO.",
+                "description": "There is no DEMO Patient. \nEnter patient information and register a DEMO patient.\n\nThe Patient's key will be saved on this browser, and the information will be saved with access control to the blockchain for DEMO.",
                 "submit": "Register DEMO Patient"
             },
             "gender": {
@@ -118,16 +126,16 @@
         },
         "dialog": {
             "key-created": {
-                "title": "Patient Registration Completed",
+                "title": "Patient Registration Complete",
                 "msg": "DEMO patient registered successfully!"
             },
             "add-permission": {
-                "title": "Add Permission Successfully",
-                "msg": "Add read/write permission to DEMO hospital Successfully."
+                "title": "Added Permission Successfully",
+                "msg": "read/write permission added to DEMO hospital Successfully."
             },
             "remove-permission": {
-                "title": "Remove Permission Successfully",
-                "msg": "Remove read/write permission from DEMO hospital Successfully."
+                "title": "Removed Permission Successfully",
+                "msg": "read/write permission removed from DEMO hospital Successfully."
             }
         }
     }

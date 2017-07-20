@@ -158,8 +158,14 @@
             var patientAddress = $('#patient-address').val().trim();
             if (patientAddress === '') {
                 DEMO_UTIL.okDialog(
-                    demoMsg("doctor.dialog.no-patient-id.title"),
-                    demoMsg("doctor.dialog.no-patient-id.msg")
+                    demoMsg("doctor.dialog.no-patient-address.title"),
+                    demoMsg("doctor.dialog.no-patient-address.msg")
+                );
+                return;
+            } else if(!patientAddress.match(/^0x[0-9a-f]{40}$/)) {
+                DEMO_UTIL.okDialog(
+                    demoMsg("doctor.dialog.invalid-patient-address.title"),
+                    demoMsg("doctor.dialog.invalid-patient-address.msg")
                 );
                 return;
             }
