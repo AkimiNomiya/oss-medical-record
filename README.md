@@ -15,6 +15,14 @@ You can check the operation of this sample project on this page.
 
 http://oss.blockchain.z.com/medical-record/
 
+Explanation
+--------------------------------------
+- #### GMO Blockchain Open Source
+    http://guide.blockchain.z.com/docs/oss/
+
+- #### Medical Record Sharing
+    http://guide.blockchain.z.com/docs/oss/medical-record/
+
 Usage Guides
 --------------------------------------
 
