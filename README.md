@@ -46,7 +46,6 @@ node server/create_admin_account.js
 Create provider/config.json based on provider/config_template.json. Edit "adminAddress" and "adminGroupId". "adminGroupId" is a random string.
 
 #### Prepare common contracts
-Prepare common contracts directory.
 ```bash
 mkdir -p oss-medical-record/gmo/contracts
 ```
