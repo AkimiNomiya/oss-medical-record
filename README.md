@@ -45,6 +45,15 @@ node server/create_admin_account.js
 #### Configure for contracts
 Create provider/config.json based on provider/config_template.json. Edit "adminAddress" and "adminGroupId". "adminGroupId" is a random string.
 
+#### Prepare common contracts
+Prepare common contracts directory.
+```bash
+mkdir -p oss-medical-record/gmo/contracts
+```
+Download sol files from the URL below and place them to the directory.
+
+https://github.com/zcom-cloud-blockchain/solidity/tree/master/contracts
+
 #### Deploy contracts
 ```bash
 cd oss-medical-record/provider
