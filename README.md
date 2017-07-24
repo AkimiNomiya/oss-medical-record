@@ -32,7 +32,9 @@ see [Setup Development Environment](https://guide.blockchain.z.com/docs/init/set
 #### Install application
 ```bash
 git clone --recursive https://github.com/zcom-cloud-blockchain/oss-medical-record.git
-cd oss-medical-record/server
+cd oss-medical-record
+git submodule add https://github.com/zcom-cloud-blockchain/solidity.git ./gmo
+cd server
 npm install
 ```
 
@@ -44,14 +46,6 @@ node server/create_admin_account.js
 
 #### Configure for contracts
 Create provider/config.json based on provider/config_template.json. Edit "adminAddress" and "adminGroupId". "adminGroupId" is a random string.
-
-#### Prepare common contracts
-```bash
-mkdir -p oss-medical-record/gmo/contracts
-```
-Download sol files from the URL below and place them to the directory.
-
-https://github.com/zcom-cloud-blockchain/solidity/tree/master/contracts
 
 #### Deploy contracts
 ```bash
