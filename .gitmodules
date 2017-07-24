@@ -1,4 +1,3 @@
 [submodule "gmo"]
 	path = gmo
 	url = https://github.com/zcom-cloud-blockchain/solidity.git
-

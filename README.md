@@ -32,9 +32,7 @@ see [Setup Development Environment](https://guide.blockchain.z.com/docs/init/set
 #### Install application
 ```bash
 git clone --recursive https://github.com/zcom-cloud-blockchain/oss-medical-record.git
-cd oss-medical-record
-git submodule add https://github.com/zcom-cloud-blockchain/solidity.git ./gmo
-cd server
+cd oss-medical-record/server
 npm install
 ```
 
