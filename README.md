@@ -26,32 +26,32 @@ Explanation
 Usage Guides
 --------------------------------------
 
-#### Create Z.com Cloud Blockchain environment
+### Create Z.com Cloud Blockchain environment
 see [Setup Development Environment](https://guide.blockchain.z.com/docs/init/setup/)
 
-#### Install application
+### Install application
 ```bash
 git clone --recursive https://github.com/zcom-cloud-blockchain/oss-medical-record.git
 cd oss-medical-record/server
 npm install
 ```
 
-#### Create admin account
+### Create admin account
 ```bash
 cd oss-medical-record
 node server/create_admin_account.js
 ```
 
-#### Configure for contracts
+### Configure for contracts
 Create provider/config.json based on provider/config_template.json. Edit "adminAddress" and "adminGroupId". "adminGroupId" is a random string.
 
-#### Deploy contracts
+### Deploy contracts
 ```bash
 cd oss-medical-record/provider
 truffle migrate
 ```
 
-#### Set up for Z.com Cloud Blockchain
+### Set up for Z.com Cloud Blockchain
 See [Basic Configuration](https://guide.blockchain.z.com/docs/dapp/setup/)
 
 - ##### Set CNS address on admin console
@@ -69,13 +69,13 @@ See [Contract Creation Process](https://guide.blockchain.z.com/docs/dapp/contrac
     ```
   2. Use 'networks.(network-id).address' and 'abi' values to register as Contract ABIs on admin console
 
-#### Configure for server
+### Configure for server
 Create server/config.json based on server/config_template.json. Edit "account" and "password" of admin which you created.
 
-#### Configure for client
+### Configure for client
 Create server/public/js/config.json based on server/public/js/config_template.json. Edit "CNS_ADDRESS" which you deployed.
 
-#### Start application
+### Start application
 ```bash
 cd oss-medical-record
 node server/app.js
