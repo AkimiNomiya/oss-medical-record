@@ -52,7 +52,22 @@ truffle migrate
 ```
 
 #### Set up for Z.com Cloud Blockchain
-see [Basic Configuration](https://guide.blockchain.conoha.jp/docs/dapp/setup/)
+See [Basic Configuration](https://guide.blockchain.z.com/docs/dapp/setup/)
+
+- ##### Set CNS address on admin console
+  1. Open a file 'provider\build\contracts\ContractNameService.json'
+  
+  2. Use 'networks.12345.address' as CNS address to register as ABI address on admin console
+
+See [Contract Creation Process](https://guide.blockchain.z.com/docs/dapp/contract/)
+- ##### Set Contract ABIs on admin console
+  1. Open following files
+    ```bash
+    'provider\build\contracts\History_v1.json'
+    'provider\build\contracts\Organization_v1.json'
+    'provider\build\contracts\Record_v1.json'
+    ```
+  2. Use 'networks.12345.address' and 'abi' values to register as Contract ABIs on admin console
 
 #### Configure for server
 Create server/config.json based on server/config_template.json. Edit "account" and "password" of admin which you created.
