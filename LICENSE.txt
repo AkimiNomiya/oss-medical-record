@@ -1,38 +1,70 @@
-This License Agreement sets out the conditions provided by GMO Internet,Inc. (hereinafter referred to as "GMO Internet") for open source. Anyone can use this software (as stated in the following terms) as long as you understand and agree to the terms of use.
+This License Agreement sets out the conditions provided by GMO Internet,Inc. 
+(hereinafter referred to as "GMO Internet") for open source. Anyone can use
+this software (as stated in the following terms) as long as you understand and
+agree to the terms of use.
 
 TERMS AND CONDITIONS FOR USE, REPRODUCTION AND DISTRIBUTION
 
 1. Definitions
 
-(1) "License" shall mean the terms and conditions for use, reproduction of Blockchain Open source.
-(2) "Licensor" shall mean "GMO Internet".
-(3) "Licensee" means an individual or corporation using this License.
-(4) "Source" shall mean that which includes, but is not limited to, the source code of the software and applications, the source constituting this License, the document source, and the configuration files.
-(5) "Object" from shall mean any form generated from Source, including but not limited to compiled object code, generated documentation, and conversions to other media types.
-(6) "Derivative Work" shall mean any work and any entity, whether in Source or Object form, that is based on the Source.
+  (a) "License" shall mean the terms and conditions for use, reproduction of
+      Blockchain Open source.
+
+  (b) "Licensor" shall mean "GMO Internet".
+
+  (c) "Licensee" means an individual or corporation using this License.
+
+  (d) "Source" shall mean that which includes, but is not limited to, the source
+      code of the software and applications, the source constituting this 
+      License, the document source, and the configuration files.
+
+  (e) "Object" from shall mean any form generated from Source, including but not
+      limited to compiled object code, generated documentation, and conversions
+      to other media types.
+
+  (f) "Derivative Work" shall mean any work and any entity, whether in Source or 
+      Object form, that is based on the Source.
 
 2. Grant of Copyright License
 
-(1) If the Licensee agrees to all the terms of this agreement, Source and Object may be downloaded. The Licensee will be deemed to have agreed to these Terms by the Licensee's downloading.
-(2) The Licensee may make copies of this License, use, modify, merge, publish, create, update, publicize and distribute Derivative Works in a non-exclusive manner in accordance with these Terms.
-(3) Licensee may redistribute derivative work in accordance with these Terms.
+  (a) If the Licensee agrees to all the terms of this agreement, Source and
+      Object may be downloaded. The Licensee will be deemed to have agreed to
+      these Terms by the Licensee's downloading.
+
+  (b) The Licensee may make copies of this License, use, modify, merge, publish, 
+      create, update, publicize and distribute Derivative Works in a 
+      non-exclusive manner in accordance with these Terms.
+
+  (c) Licensee may redistribute derivative work in accordance with these Terms.
 
 3. Copyright notice
 
-Licensee must include the copyright notice (Copyright (C) GMO Internet, Inc.) as designated by GMO Internet and the full text of the license in the source or in separate file for license display attached to the source.
+  Licensee must include the copyright notice (Copyright (C) GMO Internet, Inc.)
+  as designated by GMO Internet and the full text of the license in the source 
+  or in separate file for license display attached to the source.
 
 4. Disclaimer
 
-LICENSE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH LICENSE OR USE OR OTHER DEALINGS.
+  LICENSE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+  PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  CONNECTION WITH LICENSE OR USE OR OTHER DEALINGS.
 
 5. Prohibition
 
-Licensor prohibits Licensee from conducting criminal acts using all or part of the Source or Object.
+  Licensor prohibits Licensee from conducting criminal acts using all or part of
+  the Source or Object.
 
 6. Modification
 
-Licensor may change this License without obtaining prior permission. The new license will take effect as soon as posted on the Licensor's website.
+  Licensor may change this License without obtaining prior permission. The new
+  license will take effect as soon as posted on the Licensor's website.
 
 7. Separability
 
-If whole or any portion of any provision hereof shall be held to be void or unenforceable, the remaining terms and conditions, and the remaining portion of any provision held void or unenforceable in part shall continue in full force and effect.
+  If whole or any portion of any provision hereof shall be held to be void or 
+  unenforceable, the remaining terms and conditions, and the remaining portion
+  of any provision held void or unenforceable in part shall continue in full 
+  force and effect.
