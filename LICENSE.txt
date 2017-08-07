@@ -1,3 +1,5 @@
+GMO Internet Open Source License
+
 This License Agreement sets out the conditions provided by GMO Internet,Inc. 
 (hereinafter referred to as "GMO Internet") for open source. Anyone can use
 this software (as stated in the following terms) as long as you understand and
